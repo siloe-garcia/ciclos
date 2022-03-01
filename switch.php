@@ -62,58 +62,28 @@
         <?php
         if(isset($_POST['submit'])){
             $mes=$_POST['mes'];
-            switch ($mes) {
-                case '1':
-                    echo'El mes de <b>ENERO</b> <br><br>';
-                    echo 'Tiene <b>31</b>dias';
+            $meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+            $x=0;
+            while ($x < count($meses)) {
+                if (($mes % 2)==0 && $mes != 2) {
+                    echo 'El mes de: <b>'.$meses[$mes-1].'</b> tiene <b>31</b> dias';
                     break;
-                case '2';
-                    echo'El mes de <b>FEBRERO</b><br><br>';
-                    echo 'Tiene <b>28</b>dias ó es Biciesto';
-                    break;
-                case '3';
-                    echo'El mes de <b>MARZO</b><br><br>';
-                    echo 'Tiene <b>31</b>dias';
-                    break;
-                case '4';
-                    echo'El mes de <b>ABRIL</b><br><br>';
-                    echo 'Tiene <b>30</b>dias';
-                    break;
-                case '5';
-                    echo'El mes de <b>MAYO</b><br><br>';
-                    echo 'Tiene <b>31</b>dias';
-                    break;
-                case '6';
-                    echo'El mes de <b>JUNIO</b><br><br>';
-                    echo 'Tiene <b>30</b>dias';
-                    break;
-                case '7';
-                    echo'El mes de <b>JULIO</b><br><br>';
-                    echo 'Tiene <b>31</b>dias';
-                    break;
-                case '8';
-                    echo'El mes de <b>AGOSTO</b><br><br>';
-                    echo 'Tiene <b>31</b>dias';
-                    break;
-                case '9';
-                    echo'El mes de <b>SEPTIEMBRE</b><br><br>';
-                    echo 'Tiene <b>30</b>dias';
-                    break;
-                case '10';
-                    echo'El mes de <b>OCTUBRE</b><br><br>';
-                    echo 'Tiene <b>31</b>dias';
-                    break;
-                case '11';
-                    echo'El mes de <b>NOVIEMBRE</b><br><br>';
-                    echo 'Tiene <b>30</b>dias';
-                    break;
-                case '12';
-                    echo'El mes de <b>DICIEMBRE</b><br><br>';
-                    echo 'Tiene <b>31</b>dias';
-                    break;
-                default:
-                    echo'¡¡¡El mes no existe!!!';
-                    break;
+                }else{
+                    if (($mes % 2)!=0) {
+                        echo 'El mes de: <b>'.$meses[$mes-1].'</b> tiene <b>30</b> dias';
+                        break;
+                    }else{
+                        if ($mes=2) {
+                            echo 'El mes de: <b>'.$meses[$mes-1].'</b> tiene <b>28</b> dias o es bisciesto';
+                            break;
+                        }else{
+                            echo 'Opcion Invalida :(';
+                            break;
+                        }
+                    }
+                    
+                }
+                
             }
         }
         ?>
